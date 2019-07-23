@@ -36,7 +36,10 @@
       <h1>Testing access to online appointments</h1>
       <p>
         Use the box below to access your online appointment with a librarian. 
-        Early testing phase, used for My Learning Essentials and Specialist Library Support.
+        Early testing phase, used for
+				<a href="https://www.library.manchester.ac.uk/using-the-library/students/training-and-skills-support/my-learning-essentials/">My Learning Essentials</a>
+				and 
+				<a href="https://www.library.manchester.ac.uk/using-the-library/students/specialist-learning/">Specialist Library Support</a>.
       </p>
       <div id="question">
         <h2>
@@ -44,12 +47,20 @@
         </h2>
         <form id="questionform">
           <input id="yesapt" type="button" onclick="show('appointment'); hide('question')" value="Yes, I have an appointment now" /> 
-        <a href="#">No</a>
+        <a href="javascript:show('noappointment'); hide('question')">No</a>
         </form>
       </div>
-      <div id="appointment">
+      
+			<div id="appointment">
         <div id="libchat_d31a41ec5b2d5533508b7abdb2879b05"></div>
       </div>
+      
+			<div id="noappointment" style="display:none">
+				<p>
+					Please come back when you have an appointment or 
+				   view <a href="https://manchester-uk.libanswers.com/teaching-and-learning/">Library Help</a>.
+				</p>
+			</div>
     </article>
     <footer>
       <br /> <br /> <br /> <br /> 
@@ -59,19 +70,19 @@
       </p>
     </footer>
     <script type="text/javascript">
-        // Show appointment area and hide the question form
-	function show (toBlock) {
+      // Show appointment area and hide the question form
+			function show (toBlock) {
     	  setDisplay(toBlock, 'block');
-  	}
-  	function hide (toNone) {
+  		}
+  		function hide (toNone) {
      	  setDisplay(toNone, 'none');
-  	}
-  	function setDisplay (target, str) {
+  		}
+  		function setDisplay (target, str) {
      	  document.getElementById(target).style.display = str;
-  	}
+  		}
 	
-	// Hide appointment area on load, until button press
-	hide ('appointment');
+			// Hide appointment area on load, until button press
+			hide ('appointment');
     </script>
   </body>
 </html>
