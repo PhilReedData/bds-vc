@@ -42,8 +42,8 @@
         <p>
           Do you have an appointment with a librarian now?
         </p>
-        <form>
-          <input id="yesapt" type="button" onclick="show(this, appointment)" value="Yes, I have an appointment now" /> 
+        <form id="questionform">
+          <input id="yesapt" type="button" onclick="show('appointment'); hide('question')" value="Yes, I have an appointment now" /> 
         <a href="#">No</a>
         </form>
       </div>
@@ -58,15 +58,19 @@
       </p>
     </footer>
     <script type="text/javascript">
-      // Hide appointment area on load, until button press
-      var appointment = document.getElementById('appointment');
-      appointment.style.display = 'none';
-      
-      // Show appointment area and hide the question form
-      function show(this, target){
-        document.getElementById(target).style.display = 'block';
-        this.parentNode.style.display = 'none';
-      }
+        // Show appointment area and hide the question form
+	function show (toBlock) {
+    	  setDisplay(toBlock, 'block');
+  	}
+  	function hide (toNone) {
+     	  setDisplay(toNone, 'none');
+  	}
+  	function setDisplay (target, str) {
+     	  document.getElementById(target).style.display = str;
+  	}
+	
+	// Hide appointment area on load, until button press
+	hide ('appointment');
     </script>
   </body>
 </html>
