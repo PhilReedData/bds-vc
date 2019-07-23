@@ -2,23 +2,48 @@
 <html>
   <head>
     <title>Testing access to online appointments</title>
+    
+    <style type="text/css">
+      * {   font-family: 'Open Sans', sans-serif; color: #343536; }
+      body {    max-width: 1140px; margin: 0.5em auto; width: 96%; }
+      .site-identifier { font-size: 22px; }
+      .site-identifier a {  color: #6B2C91; text-decoration: none; }
+      h1 { color: #6B2C91; font-weight: 300; font-size: 3em;}
+	    
+	    .mainLogo {float: left;}
+	    .site-identifier {float: left; margin: 0.5em;}
+	    article {clear: both;}
+	    
+	    a { color: #6b2c91; text-decoration: none; }
+	    a:hover { text-decoration:underline; color: #343536; }
+    </style>
+    
     <script src="https://region-eu.libanswers.com/load_chat.php?hash=d31a41ec5b2d5533508b7abdb2879b05"></script>
     </head>
   <body>
-    <header>
+    <header class="headerContainer">
+      <div class="mainLogo">
+        <a href="http://www.manchester.ac.uk/">
+          <img src="https://assets.manchester.ac.uk/corporate/images/design/logo-university-of-manchester.png" height="86" width="206" alt="The University of Manchester Logo"/>
+        </a>
+      </div>
+      <div class="site-identifier">
+        <p class=""><a href="https://www.library.manchester.ac.uk/">The University of Manchester Library</a></p>
+      </div>
+    </header>
+    
+    <article>
       <h1>Testing access to online appointments</h1>
       <p>
         Use the box below to access your online appointment with a librarian. 
         Early testing phase, used for My Learning Essentials and Specialist Library Support.
       </p>
-    </header>
-    <article>
       <div id="question">
         <p>
           Do you have an appointment with a librarian now?
         </p>
         <form>
-          <input id="yesapt" type="button">Yes, I have an appointment now</input> 
+          <input id="yesapt" type="button" onclick="show(this, appointment)" value="Yes, I have an appointment now" /> 
         <a href="#">No</a>
         </form>
       </div>
@@ -27,7 +52,21 @@
       </div>
     </article>
     <footer>
-      Back to <a href="http://www.manchester.ac.uk/library">Library homepage</a>
+      <p>Alpha version.</p>
+      <p>
+        Back to <a href="http://www.manchester.ac.uk/library">Library homepage</a>
+      </p>
     </footer>
+    <script type="text/javascript">
+      // Hide appointment area on load, until button press
+      var appointment = document.getElementById('appointment');
+      appointment.style.display = 'none';
+      
+      // Show appointment area and hide the question form
+      function show(this, target){
+        document.getElementById(target).style.display = 'block';
+        this.parentNode.style.display = 'none';
+      }
+    </script>
   </body>
 </html>
